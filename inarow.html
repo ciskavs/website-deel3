@@ -8,7 +8,122 @@
 
 <body>
     <h2>Op een rij</h2>
+    <p>
+        Hier leer je een paar trucs om dingen <strong>horizontaal</strong> op een pagina te rangschikken. Eerst zul je zien hoe je dingen gecentreerd kunt krijgen. Vervolgens rangschik je elementen naast elkaar in een rij.
+    </p>
+    <ul>
+        <li>
+            Voeg de volgende CSS-eigenschappen toe aan de <code>.card</code> class:
+        </li>
+    </ul>
 
+    <div class="codeblock">
+        <code style="background-color:black;">
+          <span class="oker">margin-left</span>: auto;<br />
+          <span class="oker">margin-right</span>: auto;<br />
+      </code>
+    </div>
+
+    <p>
+        Je zou de kaarten naar het midden van de pagina moeten zien verplaatsen. Door de linker- en rechtermarges(margin-left en margin-right) in te stellen op <code>auto</code>, Kan je elk element in het midden plaatsen in plaats van naar links.
+    </p>
+
+    <img src="images/burcht-card-centered.png" alt="" class="img-responsive" height="500px" style="max-height: 300px;"><br />
+
+    <ul>
+        <li>
+            Sleep de rand van het browservenster om de pagina smaller en breder te maken. Zie je dat de kaarten gecentreerd blijven?
+        </li>
+        <li>
+            Zet alle cards met links die je zojuist hebt gemaakt in een nieuw container element. Het wordt geen <code>article</code> of een <code>section</code>, maar een die <code>div</code> wordt genoemd. Dit is een container (zie het als een soort
+            onzichtbaar blok) voor algemeen gebruik die je kan gebruiken om dingen te groeperen en mooie layouts te maken.
+        </li>
+    </ul>
+
+    <div class="codeblock">
+        <code style="background-color:black;">
+          &lt;<span class="pink">div class</span>="<span class="green">cardContainer</span>"&gt;
+      </code>
+    </div>
+
+    <ul>
+        <li>
+            Voeg de volgende CSS-code toe aan je stylesheet:
+        </li>
+    </ul>
+
+    <div class="codeblock">
+        <code style="background-color:black;">
+          <span class="purple">.cardContainer</span> { <br />
+          <span style="padding-left:24px;"><span class="oker">display</span>: flex;<br /></span>
+          <span style="padding-left:24px;"><span class="oker">flex-wrap</span>: wrap;<br /></span>
+          <span style="padding-left:24px;"><span class="oker">justify-content</span>: space-around;<br /></span>
+          <span style="padding-left:24px;"><span class="oker">padding</span>: 10px;<br /></span>
+          }<br />
+      </code>
+    </div>
+
+    <p>
+        Voilà! Dankzij <strong>Flex</strong> (kort voor <strong>Flexbox</strong> wat een CSS tool is waarmee je mooie layouts kunt maken) worden je kaarten nu naast elkaar weergegeven!
+    </p>
+
+    <ul>
+        <li>
+            Versleep de rand van je venster om de website breder en smaller te maken en kijk hoe de kaarten rond het venster passen en soms naar de volgende regel lopen.
+        </li>
+    </ul>
+
+    <img src="images/burcht-cards.png" alt="" class="img-responsive" height="500px" style="max-height: 300px;"><br />
+
+    <ul>
+        <li>
+            Probeer de <code>width</code> en <code>height</code> eigenschappen uit de <code>.card</code> class te verwijderen en kijk wat er gebeurt:
+            <strong>flex</strong> past de kaarten als puzzelstukjes in elkaar en zorgt dat alles wat op dezelfde rij staat een gelijke hoogte heeft.
+        </li>
+    </ul>
+
+    <img src="images/burcht-cards-flex.png" alt="" class="img-responsive" height="500px" style="max-height: 300px;"><br />
+    <p>
+        Als je een navigatiemenu bovenaan je pagina hebt, kan je deze truc ook gebruiken. Je menu moet samengesteld zijn uit lijstelementen ((
+        <code>li</code>) voor dit volgende deel.
+    </p>
+    <ul>
+        <li>
+            Zoek de CSS-regels voor het menu. In de voorbeeld website zijn dat de blokken <code>nav ul</code>, <code>nav ul li</code> en <code>nav ul li a</code>.
+        </li>
+        <li>
+            Verwijder de eigenschap <code>display: inline;</code> uit de lijstitems. Voeg daarna in de lijst <code>nav ul</code> toe:
+        </li>
+    </ul>
+
+    <div class="codeblock">
+        <code style="background-color:black;">
+          <span class="oker">display</span>: flex;<br />
+          <span class="oker">justify-content</span>: flex-start;<br />
+      </code>
+    </div>
+
+    <img src="images/flex-menu.png" alt="" class="img-responsive" height="500px" style="max-height: 50px;"><br />
+
+    <p>
+        Het menu is zo goed als hetzelfde gebleven, toch? Het leuke van <code>flex</code> is dat je de layout kunt besturen met de eigenschap
+        <code>justify-content</code>.
+    </p>
+    <ul>
+        <li>
+            Wijzig de waarde van <code>justify-content</code> in <code>flex-end</code> en kijk wat er gebeurt.
+            Of verander het in <code>space-around</code> om de menu-items gelijkmatig te verdelen, net zoals je deed voor de kaarten.
+        </li>
+    </ul>
+
+    <img src="images/menu-flex-end.png" alt="" class="img-responsive" height="500px" style="max-height: 75px;"><br />
+
+    <img src="images/menu-space-around.png" alt="" class="img-responsive" height="500px" style="max-height: 75px;"><br />
+
+<p>
+  <code>flex</code> is een behoorlijk krachtige layout tool waarmee we heel veel Coderdojo's zouden kunnen vullen.
+  Je kan er meer over leren op de website van <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">Flexbox</a>.
+</p>
 
     <div class="buttonbar">
         <button id="back" data-item="clickable.html" onclick="handleMenuClick(this)">
