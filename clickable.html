@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/contentStyles.css">
+</head>
+
+<body>
+    <h2>Aanklikbaar</h2>
+
+    <p>
+      Hier is een techniek die je kan gebruiken om een fotogalerij te maken of een portfolio-pagina met je projecten: <strong>kleine voorbeeldkaarten</strong>.
+    </p>
+
+    <ul>
+      <li>
+        Voeg de volgende HTML-code toe aan je website, waar je maar wilt. In het voorbeeld passen we <code>index.html</code> aan.
+        Je kan de afbeelding en tekst aanpassen aan je eigen voorbeeldkaarten. Hier doen we een aantal hoogtepunten van de toeristische
+        attracties in Leiden.
+      </li>
+    </ul>
+
+    <div class="codeblock">
+        <code style="background-color:black;">
+          &lt;<span class="pink">article class</span>="<span class="green">card</span>"&gt;<br />
+          <span style="padding-left:24px;">&lt;<span class="pink">img src</span>="<span class="green">burcht.jpg</span>" <span class="pink">class</span>="<span class="green">tinyPicture</span>"&gt;</span><br />
+          <span style="padding-left:24px;">&lt;<span class="pink">h3</span>&gt;De burcht&lt;/<span class="pink">h3</span>&gt;</span><br />
+          <span style="padding-left:24px;">&lt;<span class="pink">p</span>&gt;De burcht op een heuvel midden in de stad&lt;/<span class="pink">p</span>&gt;</span><br />
+          &lt;/<span class="pink">article</span>&gt;
+      </code>
+    </div>
+
+    <img src="images/burcht-card.png" alt="" class="img-responsive" height="500px"><br />
+
+    <ul>
+      <li>
+        Voeg de volgende CSS-code toe om de classen <code>card</code> en <code>tinyPicture</code> te maken:
+      </li>
+    </ul>
+
+    <div class="codeblock">
+        <code style="background-color:black;">
+          <span class="purple">.tinyPicture</span> { <br />
+          <span style="padding-left:24px;"><span class="oker">height</span>: 60px;<br /></span>
+          <span style="padding-left:24px;"><span class="oker">border-radius</span>: 10px;<br /></span>
+          }<br />
+          <span class="purple">.card</span> { <br />
+          <span style="padding-left:24px;"><span class="oker">width</span>: 200px;<br /></span>
+          <span style="padding-left:24px;"><span class="oker">height</span>: 200px;<br /></span>
+          <span style="padding-left:24px;"><span class="oker">border</span>: 2px solid #F0FFFF;<br /></span>
+          <span style="padding-left:24px;"><span class="oker">border-radius</span>: 10px;<br /></span>
+          <span style="padding-left:24px;"><span class="oker">box-sizing</span>: border-box;<br /></span>
+          <span style="padding-left:24px;"><span class="oker">padding</span>: 10px;<br /></span>
+          <span style="padding-left:24px;"><span class="oker">margin-top</span>: 10px;<br /></span>
+          <span style="padding-left:24px;"><span class="oker">font-family</span>: "Trebuchet MS", sans-serif";<br /></span>
+          }<br />
+          <span class="purple">.card:hover</span> { <br />
+          <span style="padding-left:24px;"><span class="oker">border-color</span>: #1E90FF;<br /></span>
+          }<br />
+      </code>
+    </div>
+
+    <img src="images/burcht-card-css.png" alt="" class="img-responsive"><br />
+
+    <p>
+      Laten we de hele voorbeeldkaart omzetten in een link zodat mensen kunnen klikken om meer informatie te bekijken.
+    </p>
+
+    <ul>
+      <li>
+        Plaats het hele <code>article</code> element in een linkelement. Zorg ervoor dat de sluit tag <code>&lt;/a&gt;</code> achter de
+        sluit tag <code>&lt;/article&gt;</code> staat! Voel je vrij om de link <strong>URL</strong> te wijzigen in waar je naar wilt linken.
+        Dat kan een andere pagina op je website zijn, of het kan een andere website zijn.
+      </li>
+    </ul>
+
+    <div class="codeblock">
+        <code style="background-color:black;">
+          &lt;<span class="pink">a href</span>="<span class="green">attracties.html#burcht</span>"&gt;<br />
+          <span style="padding-left:24px;">&lt;<span class="pink">article class</span>="<span class="green">card</span>"&gt;</span><br />
+          <span style="padding-left:48px;">&lt;<span class="pink">img src</span>="<span class="green">burcht.jpg</span>" <span class="pink">class</span>="<span class="green">tinyPicture</span>"&gt;</span><br />
+          <span style="padding-left:48px;">&lt;<span class="pink">h3</span>&gt;De burcht&lt;/<span class="pink">h3</span>&gt;</span><br />
+          <span style="padding-left:48px;">&lt;<span class="pink">p</span>&gt;De burcht op een heuvel midden in de stad&lt;/<span class="pink">p</span>&gt;</span><br />
+          <span style="padding-left:24px;">&lt;/<span class="pink">article</span>&gt;</span><br />
+          &lt;/<span class="pink">a</span>&gt;
+      </code>
+    </div>
+
+    <img src="images/burcht-card-clickable.png" alt="" class="img-responsive"><br />
+
+    <div class="accordion" id="linksExplained">
+        <div class="card collapseCard">
+            <button class="btn collapseButton" type="button" data-toggle="collapse" data-target="#collapseLinksExplained" aria-expanded="true" aria-controls="collapseLinksExplained">
+              <div class="card-header collapseHeader" id="headingLinksExplained">
+                <h2 class="mb-0">
+                  <img src="images/info.svg" alt="" class="left small-icon"/>
+                  <span class="collapseText left">Linken naar een specifiek deel van een pagina</span>
+                  <i class="fas fa-angle-down collapseIcon"></i>
+                </h2>
+              </div>
+            </button>
+
+            <div id="collapseLinksExplained" class="collapse hide" aria-labelledby="headingLinksExplained" data-parent="#linksExplained">
+                <div class="card-body">
+                  <p>
+                    Zie je dat de waarde van <code>href</code> in de link eindigt op <code>#burcht</code>? Dit is een handige truc
+                    die je kan gebruiken om naar een bepaald deel van een pagina te springen.
+                  </p>
+                  <ul>
+                    <li>
+                      Typ eerst de URL van de pagina waarnaar je wilt linken, gevolgd door <code>#</code>.
+                    </li>
+                    <li>
+                      Zoek in het codebestand voor de pagina waarnaar je linkt, het onderdeel waarnaar je wilt springen en
+                      geef dat element een <code>id</code>, bijvoorbeeld <code>&lt;section id="burcht"&gt;</code>.
+                      De waarde van het <code>id</code> typ je na het <code>#</code> in je link.
+                    </li>
+                  </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="accordion" id="stylesExplained">
+        <div class="card collapseCard">
+            <button class="btn collapseButton" type="button" data-toggle="collapse" data-target="#collapseStylesExplained" aria-expanded="true" aria-controls="collapseStylesExplained">
+              <div class="card-header collapseHeader" id="headingStylesExplained">
+                <h2 class="mb-0">
+                  <img src="images/info.svg" alt="" class="left small-icon"/>
+                  <span class="collapseText left">Stijlen resetten</span>
+                  <i class="fas fa-angle-down collapseIcon"></i>
+                </h2>
+              </div>
+            </button>
+
+            <div id="collapseStylesExplained" class="collapse hide" aria-labelledby="headingStylesExplained" data-parent="#stylesExplained">
+                <div class="card-body">
+                  <p>
+                    Nu de hele voorbeeldkaart een link is, is het tekstlettertype mogelijk gewijzigd.
+                  </p>
+
+                  <ul>
+                    <li>
+                      Als dit het geval is, kan je dit oplossen door een <strong>CSS-class</strong> toe te voegen aan de link: <code>class = "cardLink"</code>.
+                      Hier is de CSS-code die je in je stylesheet moet zetten:
+                    </li>
+                  </ul>
+
+                  <div class="codeblock">
+                      <code style="background-color:black;">
+                        <span class="purple">.cardLink</span> { <br />
+                        <span style="padding-left:24px;"><span class="oker">color</span>: inherit;<br /></span>
+                        <span style="padding-left:24px;"><span class="oker">text-decoration:</span>: none;<br /></span>
+                        }<br />
+                    </code>
+                  </div>
+
+                  <p>
+                    Als je de waarde van een eigenschap instelt op <code>inherit</code>, dan wordt de waarde van de <code>parent</code>
+                    (het bovenliggende element) gebruikt. In dit geval komt de tekstkleur dus overeen met de rest van de tekst op de startpagina.
+                  </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ul>
+      <li>
+        Maak minstens vier of vijf van deze kaarten.
+        In de volgende stap leer je hoe je de kaarten met een coole truc kan rangschikken!
+      </li>
+    </ul>
+
+
+
+    <div class="buttonbar">
+        <button id="back" data-item="setup.html" onclick="handleMenuClick(this)">
+          <img src="images/back.svg" alt="" />
+        </button>
+        <button id="next" data-item="inarow.html" onclick="handleMenuClick(this)">
+          Op een rij
+          <i class="fas fa-angle-right"></i>
+        </button>
+    </div>
+</body>
+
+</html>

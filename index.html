@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="nl">
+<script>
+    function includeHTML() {
+        var z, i, elmnt, file, xhttp;
+        /*loop through a collection of all HTML elements:*/
+        z = document.getElementsByTagName("*");
+        for (i = 0; i < z.length; i++) {
+            elmnt = z[i];
+            /*search for elements with a certain atrribute:*/
+            file = elmnt.getAttribute("w3IncludeHtml");
+            if (file) {
+                /*make an HTTP request using the attribute value as the file name:*/
+                xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                        if (this.status == 200) {
+                            elmnt.innerHTML = this.responseText;
+                        }
+                        if (this.status == 404) {
+                            elmnt.innerHTML = "Page not found.";
+                        }
+                        /*remove the attribute, and call this function once more:*/
+                        elmnt.removeAttribute("w3IncludeHtml");
+                        includeHTML();
+                    }
+                }
+                xhttp.open("GET", file, true);
+                xhttp.send();
+                /*exit the function:*/
+                return;
+            }
+        }
+    };
+
+    function handleMenuClick(data) {
+        var href = data.getAttribute("data-item");
+        var contentDiv = document.getElementById("content-sectie");
+        contentDiv.setAttribute("w3IncludeHtml", href);
+        includeHTML();
+        window.scrollTo(0,0);
+
+        /* Only the current page should have a different coloured link in the menu */
+        var previousPage = document.getElementsByClassName('bezig');
+        if (previousPage.length > 0) {
+          previousPage[0].classList.remove('bezig');
+        }
+        var currentPage = document.getElementById(href);
+        currentPage.classList.add('bezig');
+    }
+</script>
+
+<head>
+    <title>Gevorderden HTML/CSS website maken</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+
+    <!-- Load jQuery before bootstrap.js, else it won't work -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="css/bootstrap.min.js"></script>
+
+    <!-- Importeer de css voor het > teken voor in links -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row col-12 rose no-gutters">
+          <div class="col-3">
+              <img alt="" class="img-responsive" src="images/banner.png">
+          </div>
+            <div class="col-9 my-auto">
+                <h1 class="title">HTML/CSS voor gevorderden</h1>
+                <p class="subtitle">Geef je website een professionele uitstraling</p>
+            </div>
+        </div>
+
+        <div class="row" style="margin-left: 32px; margin-right: 32px;">
+            <div class="col-3">
+                <ul class="menu">
+                    <li>
+                        <a href="#" id="intro.html" data-item="intro.html" class="bezig" onclick="handleMenuClick(this)">Introductie</a>
+                        <a href="#" id="setup.html" data-item="setup.html" onclick="handleMenuClick(this)">Klaarzetten</a>
+                        <a href="#" id="clickable.html" data-item="clickable.html" onclick="handleMenuClick(this)">Aanklikbaar</a>
+                        <a href="#" id="inarow.html" data-item="inarow.html" onclick="handleMenuClick(this)">Op een rij</a>
+                        <a href="#" id="responsive.html" data-item="responsive.html" onclick="handleMenuClick(this)">Responsive menu</a>
+                        <a href="#" id="captions.html" data-item="captions.html" onclick="handleMenuClick(this)">Ernaast</a>
+                        <a href="#" id="layout.html" data-item="layout.html" onclick="handleMenuClick(this)">Coole layout</a>
+                        <a href="#" id="photo.html" data-item="photo.html" onclick="handleMenuClick(this)">Foto collage</a>
+                        <a href="#" id="effects.html" data-item="effects.html" onclick="handleMenuClick(this)">Speciale effecten</a>
+                        <a href="#" id="end.html" data-item="end.html" onclick="handleMenuClick(this)">Afgerond!</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-9">
+                <section>
+                    <div id="content-sectie" w3IncludeHtml="intro.html"></div>
+                </section>
+            </div>
+        </div>
+
+        <script>
+            includeHTML();
+        </script>
+</body>
+
+</html>

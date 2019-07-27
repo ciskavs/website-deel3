@@ -1,0 +1,54 @@
+html * {
+    font-size: 18px;
+    line-height: 32px;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+
+.rose {
+    background-color: #f3524f;
+}
+
+.title {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 24px height: 200px;
+    margin-left: 32px;
+}
+
+.subtitle {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 20px;
+    margin-left: 32px;
+}
+
+ul.menu {
+    list-style-type: none;
+    list-style-position: inside;
+    text-indent: -30px;
+    margin-left: 0;
+    margin-top: 32px;
+    padding: 0;
+}
+
+ul.menu li a:before {
+    content: '\20DD';
+    margin-right: 30px;
+}
+
+ul.menu li a {
+    display: block;
+    margin-left: 32px;
+    line-height: 40px;
+    color: #724695;
+}
+
+#content-sectie {
+    margin-top: 32px;
+}
+
+ul.menu li a.bezig {
+  color: #f3524f;
+  font-weight: bold;
+}
