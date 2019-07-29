@@ -9,6 +9,201 @@
 <body>
     <h2>Responsive menu</h2>
 
+    <p>
+        Een <strong>responsive</strong> (reagerende) website is er een die zich aanpast aan de schermgrootte, zodat deze er altijd fantastisch uitziet, of je hem nu bekijkt op een computer, mobiele telefoon of tablet. Laten we je menu responsive maken!
+    </p>
+    <p>
+        Je begint met de standaard stijlen: dit is je <strong>default</strong> gedrag.
+    </p>
+
+    <div class="accordion" id="defaultExplained">
+        <div class="card collapseCard">
+            <button class="btn collapseButton" type="button" data-toggle="collapse" data-target="#collapseDefaultExplained" aria-expanded="true" aria-controls="collapseDefaultExplained">
+              <div class="card-header collapseHeader" id="headingDefaultExplained">
+                <h2 class="mb-0">
+                  <img src="images/info.svg" alt="" class="left small-icon"/>
+                  <span class="collapseText left">Wat betekent 'default'?</span>
+                  <i class="fas fa-angle-down collapseIcon"></i>
+                </h2>
+              </div>
+            </button>
+
+            <div id="collapseDefaultExplained" class="collapse hide" aria-labelledby="headingDefaultExplained" data-parent="#defaultExplained">
+                <div class="card-body">
+                    <p>
+                        De default (standaard) stijlen zijn je normale stijlregels. Ze worden altijd toegepast voordat speciale voorwaarden worden gecontroleerd.
+                    </p>
+                    <p>
+                        Je kan code toevoegen die de grootte van het scherm controleert en als dat nodig is enkele aanpassingen maakt.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ul>
+        <li>
+            Voeg de volgende CSS-regels toe aan je menu. Je hebt waarschijnlijk ook kleuren en randen gedefinieerd; Hieronder zijn weggelaten om ruimte te besparen! Als je al CSS-regels voor je menu hebt gedefinieerd, voeg je gewoon de eigenschappen en waarden toe
+            die je hieronder mist of wijzigt.
+        </li>
+    </ul>
+
+    <div class="codeblock">
+        <code style="background-color:black;">
+          <span class="purple">nav ul</span> { <br />
+          <span style="padding-left:24px;"><span class="oker">padding</span>: 0.5em;<br /></span>
+          <span style="padding-left:24px;"><span class="oker">display</span>: flex;<br /></span>
+          <span style="padding-left:24px;"><span class="oker">flex-direction</span>: column;<br /></span>
+          }<br />
+          <span class="purple">nav ul li</span> { <br />
+          <span style="padding-left:24px;"><span class="oker">text-align</span>: center;<br /></span>
+          <span style="padding-left:24px;"><span class="oker">list-style-type</span>: none;<br /></span>
+          <span style="padding-left:24px;"><span class="oker">margin-right</span>: 0.5em;<br /></span>
+          <span style="padding-left:24px;"><span class="oker">margin-left</span>: 0.5em;<br /></span>
+          }<br />
+      </code>
+    </div>
+
+    <p>
+        Met de bovenstaande CSS-code is je menu het meest geschikt voor kleine schermen. Dit wordt <strong>mobile-first</strong> (mobiel eerst) ontwikkeling genoemd.
+    </p>
+
+    <img src="images/responsive-menu.png" alt="" class="img-responsive"><br />
+
+    <div class="accordion" id="mobileFirstExplained">
+        <div class="card collapseCard">
+            <button class="btn collapseButton" type="button" data-toggle="collapse" data-target="#collapseMobileFirstExplained" aria-expanded="true" aria-controls="collapseMobileFirstExplained">
+              <div class="card-header collapseHeader" id="headingMobileFirstExplained">
+                <h2 class="mb-0">
+                  <img src="images/info.svg" alt="" class="left small-icon"/>
+                  <span class="collapseText left">Wat betekent mobile first?</span>
+                  <i class="fas fa-angle-down collapseIcon"></i>
+                </h2>
+              </div>
+            </button>
+
+            <div id="collapseMobileFirstExplained" class="collapse hide" aria-labelledby="headingMobileFirstExplained" data-parent="#mobileFirstExplained">
+                <div class="card-body">
+                    <p>
+                        Heel vaak gebruik je bij het coderen van een website een computerscherm en definieer je je stijlen waarschijnlijk op basis van hoe het op dat scherm eruit ziet.
+                    </p>
+                    <p>
+                        Als je eerst codeert voor mobiel, kies je in plaats daarvan standaardstijlen die geschikt zijn voor kleine schermen zoals smartphones. Vervolgens voeg je extra code toe om aanpassingen voor grotere schermen uit te voeren.
+                    </p>
+                    <p>
+                        Aangezien meer en meer mensen op internet surfen op hun smartphones of tablets in plaats van op een computer, is het een goede gewoonte om je website met dit in gedachten te ontwikkelen.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ul>
+        <li>
+            Voeg nu de volgende code toe aan je stylesheet:
+        </li>
+    </ul>
+
+    <div class="codeblock">
+        <code style="background-color:black;">
+          <span class="purple">@media all and</span> (<span class="oker">min-width</span>: 1000px) { <br />
+          <span style="padding-left:24px;"><span class="purple">nav ul</span> { <br /></span>
+          <span style="padding-left:48px;"><span class="oker">flex-direction</span>: row;<br /></span>
+          <span style="padding-left:48px;"><span class="oker">justify-content</span>: space-around;<br /></span>
+          <span style="padding-left:24px;">}<br /></span>
+          }<br />
+      </code>
+    </div>
+
+    <p>
+        De eerste coderegel hierboven controleert hoe groot het browservenster is. Als het venster <strong>1000 pixels</strong> breed of breder is, worden alle stijlregels in het blok toegepast.
+    </p>
+    <img src="images/responsive-menu-wide.png" alt="" class="img-responsive"><br />
+
+    <div class="accordion" id="mediaQueryExplained">
+        <div class="card collapseCard">
+            <button class="btn collapseButton" type="button" data-toggle="collapse" data-target="#collapseMediaQueryExplained" aria-expanded="true" aria-controls="collapseMediaQueryExplained">
+              <div class="card-header collapseHeader" id="headingMediaQueryExplained">
+                <h2 class="mb-0">
+                  <img src="images/info.svg" alt="" class="left small-icon"/>
+                  <span class="collapseText left">Hoe werkt het?</span>
+                  <i class="fas fa-angle-down collapseIcon"></i>
+                </h2>
+              </div>
+            </button>
+
+            <div id="collapseMediaQueryExplained" class="collapse hide" aria-labelledby="headingMediaQueryExplained" data-parent="#mediaQueryExplained">
+                <div class="card-body">
+                    <p>
+                        Het blok bevat nieuwe waarden voor een paar eigenschappen van het <code>nav ul</code> menu.
+                    </p>
+                    <p>
+                        Als het venster breder is dan 1000 pixels, worden deze nieuwe waarden toegepast in plaats van de waarden die je
+                         al hebt gedefinieerd voor <code>nav ul</code>.
+                    </p>
+                    <p>
+                        De rest van de eigenschappen die je eerder voor <code>nav ul</code> hebt gedefinieerd, blijft hetzelfde.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ul>
+      <li>
+        Als je Trinket gebruikt om code te schrijven, kan het nuttig zijn om het project te downloaden, zodat je het op een volledig
+        scherm kunt testen.
+      </li>
+    </ul>
+
+    <h3>Uitdaging: je menu aanpassen aan grote schermen</h3>
+    <ul>
+      <li>
+        Kun je nog een blok toevoegen voor schermen groter dan <strong>1600 pixels</strong>, met <code>flex-end</code> in plaats van
+        <code>space-around</code>?
+      </li>
+    </ul>
+
+    <img src="images/responsive-menu-flex-end.png" alt="" class="img-responsive"><br />
+
+    <div class="accordion" id="bigScreenHint">
+        <div class="card collapseCard">
+            <button class="btn collapseButton" type="button" data-toggle="collapse" data-target="#collapseBigScreenHint" aria-expanded="true" aria-controls="collapseBigScreenHint">
+                  <div class="card-header collapseHeader" id="headingBigScreenHint">
+                    <h2 class="mb-0">
+                      <img src="images/hint.svg" alt="" class="left small-icon"/>
+                      <span class="collapseText left">Geef me een hint</span>
+                      <i class="fas fa-angle-down collapseIcon"></i>
+                    </h2>
+                  </div>
+                </button>
+
+            <div id="collapseBigScreenHint" class="collapse hide" aria-labelledby="headingBigScreenHint" data-parent="#bigScreenHint">
+                <div class="card-body">
+                  <p>
+                    De volgende code definieert flexeigenschappen voor menu-items wanneer het scherm groter is dan 1600 pixels:
+                  </p>
+
+                  <div class="codeblock">
+                      <code style="background-color:black;">
+                        <span class="purple">@media all and</span> (<span class="oker">min-width</span>: 1600px) { <br />
+                        <span style="padding-left:24px;"><span class="purple">nav ul</span> { <br /></span>
+                        <span style="padding-left:48px;"><span class="oker">flex-direction</span>: row;<br /></span>
+                        <span style="padding-left:48px;"><span class="oker">justify-content</span>: flex-end;<br /></span>
+                        <span style="padding-left:24px;">}<br /></span>
+                        }<br />
+                    </code>
+                  </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p>
+      Je kan elke gewenste CSS-regel in blokken zoals deze stoppen om verschillende stijlen voor verschillende schermformaten te definiëren.
+      Het is vooral handig als je later CSS grid layouts uitvoert!
+    </p>
 
     <div class="buttonbar">
         <button id="back" data-item="inarow.html" onclick="handleMenuClick(this)">
