@@ -7,7 +7,197 @@
 </head>
 
 <body>
-    <h2>Ernaast</h2>
+    <h2>Bijschrift en opmerking</h2>
+
+    <p>
+        Hier leer je nog twee soorten <strong>container</strong> elementen: een die je kunt gebruiken om een bijschrift (wat tekst zoals een titel of korte beschrijving) aan een foto toe te voegen, en een andere voor als je extra dingen hebt die echt
+        niet horen bij de hoofdinformatie op een pagina.
+    </p>
+    <h3>
+      Afbeeldingen met bijschriften
+    </h3>
+    <p>
+        Zoek een <code>img</code> element waar tekst boven of onder staat die bij de afbeelding hoort. In dit voorbeeld werken we met de Tito-afbeelding op <code>index.html</code>, maar je kunt alles gebruiken wat er op je website staat.
+    </p>
+
+    <div class="codeblock">
+        <code style="background-color:black;">
+          &lt;<span class="pink">img id</span>="<span class="green">titoPicture</span>" <span class="pink">class</span>="<span class="green">solidRoundBorders</span>" <span class="pink">src</span>="<span class="green">tito.png</span>" <span class="pink">alt</span>="<span class="green">Tito de hond</span>"&gt;<br />
+          &lt;<span class="pink">p</span>&gt;<br />
+          <span style="padding-left:24px;">Onze gids Tito!</span><br />
+          &lt;/<span class="pink">p</span>&gt;</span><br />
+          </code>
+    </div>
+
+    <ul>
+        <li>
+            Voeg op de regel boven de code de open tag <code>&lt;figure&gt;</code> toe. Plaats op een nieuwe regel onder de code de sluit tag <code>&lt;/figure&gt;</code>.
+        </li>
+        <li>
+            Verwijder vervolgens de <code>p</code> tags, of welke tags je ook rond de tekst hebt (misschien is het een kop, zoals <code>h2</code>?) en plaats de tekst in plaats daarvan tussen de tags <code>&lt;figcaption&gt; &lt;/figcaption&gt;</code>.
+            Het geheel zou er ongeveer zo uit moeten zien:
+        </li>
+    </ul>
+
+    <div class="codeblock">
+        <code style="background-color:black;">
+          &lt;<span class="pink">figure</span>&gt;<br />
+          <span style="padding-left:24px;">&lt;<span class="pink">img id</span>="<span class="green">titoPicture</span>" <span class="pink">class</span>="<span class="green">solidRoundBorders</span>" <span class="pink">src</span>="<span class="green">tito.png</span>" <span class="pink">alt</span>="<span class="green">Tito de hond</span>"&gt;</span><br />
+          <span style="padding-left:24px;">&lt;<span class="pink">figcaption</span>&gt;<br />
+          <span style="padding-left:48px;">Onze gids Tito!</span><br />
+          <span style="padding-left:24px;">&lt;/<span class="pink">figcaption</span>&gt;</span><br />
+          &lt;/<span class="pink">figure</span>&gt;
+          </code>
+    </div>
+
+    <p>
+        Het <code>figcaption</code> element is je <strong>bijschrift</strong> ('caption' in het Engels). Het kan boven het
+        <code>img</code> element staan of eronder.
+    </p>
+
+    <img src="images/captions-tito.png" alt="" class="img-responsive"><br />
+
+    <div class="accordion" id="figureExplained">
+        <div class="card collapseCard">
+            <button class="btn collapseButton" type="button" data-toggle="collapse" data-target="#collapseFigureExplained" aria-expanded="true" aria-controls="collapseFigureExplained">
+              <div class="card-header collapseHeader" id="headingFigureExplained">
+                <h2 class="mb-0">
+                  <img src="images/info.svg" alt="" class="left small-icon"/>
+                  <span class="collapseText left">Wat heb je hieraan?</span>
+                  <i class="fas fa-angle-down collapseIcon"></i>
+                </h2>
+              </div>
+            </button>
+
+            <div id="collapseFigureExplained" class="collapse hide" aria-labelledby="headingFigureExplained" data-parent="#figureExplained">
+                <div class="card-body">
+                    <p>
+                        Het <code>figure</code> element fungeert als een soort <strong>container</strong> voor je foto en het bijschrift. Hiermee kan je ze als één eenheid behandelen bij het definiëren van stijlen.
+                    </p>
+                    <p>
+                        Logisch groeperen helpt ook om een goede structuur in je websitecode te behouden.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p>
+        Je kan CSS-code gebruiken om <code>figure</code> en <code>figcaption</code> te stylen zoals elk ander element met classen, ID's of element selectors. Voeg de volgende regels toe om de extra afstand te verwijderen die door de nieuwe container is
+        toegevoegd:
+    </p>
+
+    <div class="codeblock">
+        <code style="background-color:black;">
+          <span class="purple">figure</span> { <br />
+          <span style="padding-left:24px;"><span class="oker">margin-top</span>: 0px;<br /></span>
+          <span style="padding-left:24px;"><span class="oker">margin-bottom</span>: 0px;<br /></span>
+          <span style="padding-left:24px;"><span class="oker">margin-left</span>: 0px;<br /></span>
+          <span style="padding-left:24px;"><span class="oker">margin-right</span>: 0px;<br /></span>
+          }<br />
+        </code>
+    </div>
+
+    <h3>Opmerkingen</h3>
+
+    <p>
+        Laten we aan de pagina Plaatsen om te bezoeken wat opmerkingen toevoegen over het weer en hoe je overal kunt komen.
+        Die informatie hoort niet echt thuis in het <code>article</code> element met alle plaatsen. Dit is een voorbeeld
+        van wanneer je het element <code>aside</code> (ernaast) kunt gebruiken.
+    </p>
+
+    <ul>
+        <li>
+            Ga naar een pagina van je website met een <code>article</code> element: bijvoorbeeld <code>attracties.html</code>.
+        </li>
+        <li>
+            Voeg buiten het <code>article</code> element een of meer paren <code>&lt;aside&gt; &lt;/aside&gt;</code> tags toe met de extra informatie.
+        </li>
+    </ul>
+
+    <div class="codeblock">
+        <code style="background-color:black;">
+          &lt;<span class="pink">aside</span> <span class="pink">class</span>="<span class="green">sideNoteStyle</span>"&gt;<br />
+          <span style="padding-left:24px;">&lt;<span class="pink">h2</span>&gt;</span>In Leiden komen&lt;/<span class="pink">h2</span>&gt;<br />
+          <span style="padding-left:24px;">&lt;<span class="pink">h3</span>&gt;</span>Trein en bus&lt;/<span class="pink">h3</span>&gt;<br />
+          <span style="padding-left:24px;">&lt;<span class="pink">p</span>&gt;</span>Leiden heeft meerdere treinstations. Er rijden ook bussen vanuit verschillende plaatsen in de omgeving. In de stad rijden ook bussen waarmee je bij de verschillende toeristische attracties kunt komen.&lt;/<span class="pink">p</span>&gt;<br />
+          <span style="padding-left:24px;">&lt;<span class="pink">h3</span>&gt;</span>Auto&lt;/<span class="pink">h3</span>&gt;<br />
+          <span style="padding-left:24px;">&lt;<span class="pink">p</span>&gt;</span>In de binnenstad van Leiden is het niet handig om met de auto te zijn, maar er zijn diverse parkeergelegenheden aan de rand van de stad.&lt;/<span class="pink">p</span>&gt;<br />
+          &lt;/<span class="pink">aside</span>&gt;</span><br />
+          &lt;<span class="pink">aside</span> <span class="pink">class</span>="<span class="green">sideNoteStyle</span>"&gt;<br />
+          <span style="padding-left:24px;">&lt;<span class="pink">h2</span>&gt;</span>Weer&lt;/<span class="pink">h2</span>&gt;<br />
+          <span style="padding-left:24px;">&lt;<span class="pink">p</span>&gt;</span>Het weer in Leiden is nogal &lt;span class="specialText"&gt;wisselend!&lt;/span&gt; Je kan maar beter &lt;span class="specialText"&gt;goed voorbereid&lt;/span&gt; zijn op zowel regen als zon!&lt;/<span class="pink">p</span>&gt;<br />
+          &lt;/<span class="pink">aside</span>&gt;</span><br />
+        </code>
+    </div>
+
+    <div class="accordion" id="sideNoteExplained">
+        <div class="card collapseCard">
+            <button class="btn collapseButton" type="button" data-toggle="collapse" data-target="#collapseSideNoteExplained" aria-expanded="true" aria-controls="collapseSideNoteExplained">
+              <div class="card-header collapseHeader" id="headingSideNoteExplained">
+                <h2 class="mb-0">
+                  <img src="images/info.svg" alt="" class="left small-icon"/>
+                  <span class="collapseText left">Wat heb je hier aan?</span>
+                  <i class="fas fa-angle-down collapseIcon"></i>
+                </h2>
+              </div>
+            </button>
+
+            <div id="collapseSideNoteExplained" class="collapse hide" aria-labelledby="headingSideNoteExplained" data-parent="#sideNoteExplained">
+                <div class="card-body">
+                    <p>
+                      De <code>aside</code>, <code>article</code> en andere containers zijn allemaal vergelijkbaar. Het enige echte verschil
+                       zit in de <strong>betekenis</strong>, dat wil zeggen waarvoor je ze gebruikt.
+                     </p>
+                     <p>
+                       Het is belangrijk om zinvolle HTML-elementen te gebruiken wanneer je maar kunt. Het geeft je website een betere structuur
+                       en is vooral handig voor mensen die <strong>schermlezers</strong> gebruiken.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p>
+      Heb je het andere element daarin gezien, <code>span</code>? Dit is een speciale tag die je kan gebruiken om extra CSS-code toe te voegen!
+      Je kunt alles tussen een paar <code>span</code> tags plaatsen. Het is handig voor dingen als het opmaken van een deel van de tekst
+      in een alinea.
+    </p>
+
+    <ul>
+      <li>
+        Voeg de volgende CSS-code toe aan je stylesheet om de styling voor de HTML-code hierboven te voltooien.
+      </li>
+    </ul>
+
+    <div class="codeblock">
+        <code style="background-color:black;">
+          <span class="purple">.sideNoteStyle</span> { <br />
+          <span style="padding-left:24px;"><span class="oker">border</span>: dotted 1px purple;<br /></span>
+          <span style="padding-left:24px;"><span class="oker">background-color</span>: #c1ebec;<br /></span>
+          <span style="padding-left:24px;"><span class="oker">padding</span>: 0.5em;<br /></span>
+          <span style="padding-left:24px;"><span class="oker">margin</span>: 0.5em;<br /></span>
+          }<br />
+          <span class="purple">.specialText</span> { <br />
+          <span style="padding-left:24px;"><span class="oker">color</span>: #FF4500;<br /></span>
+          <span style="padding-left:24px;"><span class="oker">font-size</span>: larger;<br /></span>
+          }<br />
+        </code>
+    </div>
+
+    <img src="images/captions-aside.png" alt="" class="img-responsive"><br />
+
+    <p>
+      In de volgende stap ga je leren hoe je de layout van je website interessanter kunt maken!
+    </p>
+
+    <ul>
+      <li>
+        Maak een pagina met één <code>article</code> en twee <code>aside</code> elementen in de tags <code>&lt;main&gt;&lt;/main&gt;</code>.
+        Of als je wil, kan je werken met de pagina Plaatsen om te bezoeken op de voorbeeld website.
+      </li>
+    </ul>
+
 
 
     <div class="buttonbar">
