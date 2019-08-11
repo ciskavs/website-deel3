@@ -9,6 +9,240 @@
 <body>
     <h2>Coole layout</h2>
 
+    <ul>
+        <li>
+            Hier ga je werken met een pagina die een <code>main</code> element bevat met drie elementen erin: een <code>article</code> en twee <code>aside</code>s. Maak deze eerst aan als dat nodig is. Als je met de voorbeeld website wilt werken, voeg
+            dan de <code>aside</code> code van de vorige stap toe aan de pagina Plaatsen om te bezoeken.
+        </li>
+    </ul>
+    <p>
+        Hier zijn drie verschillende pagina layouts die je gaat toepassen:
+    </p>
+
+    <img src="images/cssGridLayouts.png" alt="" class="img-responsive"><br />
+
+    <ul>
+        <li>
+            Voeg nieuwe CSS classes toe aan <code>main</code> en elk van de drie elementen erin.
+        </li>
+    </ul>
+
+
+    <div class="codeblock">
+        <code style="background-color:black;">
+      &lt;<span class="pink">main class</span>="<span class="green">attPageLayoutGrid</span>"&gt;<br />
+      <span style="padding-left:24px;">&lt;<span class="pink">article class</span>="<span class="green">attGridArticle</span>"&gt;</span><br />
+      <span style="padding-left:48px;">&lt;!--andere dingen hier--&gt;</span><br />
+      <span style="padding-left:24px;">&lt;/<span class="pink">article</span>&gt;<br />
+      <span style="padding-left:24px;">&lt;<span class="pink">aside class</span>="<span class="green">attGridAside1</span>"&gt;</span><br />
+      <span style="padding-left:48px;">&lt;!--andere dingen hier--&gt;</span><br />
+      <span style="padding-left:24px;">&lt;/<span class="pink">aside</span>&gt;<br />
+      <span style="padding-left:24px;">&lt;<span class="pink">aside class</span>="<span class="green">attGridAside2</span>"&gt;</span><br />
+      <span style="padding-left:48px;">&lt;!--andere dingen hier--&gt;</span><br />
+      <span style="padding-left:24px;">&lt;/<span class="pink">aside</span>&gt;<br />
+      &lt;/<span class="pink">main</span>&gt;</span><br />
+    </code>
+    </div>
+
+    <p>
+        De container waarvan je de layout gaat veranderen, is <code>main</code>, maar je kan dit doen met elke soort container, zoals een
+        <code>div</code> of een <code>article</code>, of zelfs de hele pagina <code>body</code>. De techniek die je gaat gebruiken, wordt <strong>CSS grid</strong> genoemd.
+    </p>
+    <p>
+        In dit voorbeeld worden de <code>header</code> en <code>footer</code> weggelaten uit het ontwerp, maar het is heel gebruikelijk om ze ook in het raster op te nemen.
+    </p>
+    <ul>
+        <li>
+            Stel de <code>display</code> eigenschap in op <code>grid</code> op de algehele container:
+        </li>
+    </ul>
+
+    <div class="codeblock">
+        <code style="background-color:black;">
+          <span class="purple">.attPageLayoutGrid</span> { <br />
+          <span style="padding-left:24px;"><span class="oker">display</span>: grid;<br /></span>
+          <span style="padding-left:24px;"><span class="oker">grid-column-gap</span>: 0.5em;<br /></span>
+          <span style="padding-left:24px;"><span class="oker">grid-row-gap</span>: 1em;<br /></span>
+          }<br />
+        </code>
+    </div>
+
+    <p>
+        Wat denk je dat de eigenschappen <code>grid-column-gap</code> en <code>grid-row-gap</code> doen?
+    </p>
+    <ul>
+        <li>
+            Vervolgens geef je elk element een <code>grid-area</code> naam:
+        </li>
+    </ul>
+
+    <div class="codeblock">
+        <code style="background-color:black;">
+          <span class="purple">.attGridArticle</span> { <br />
+          <span style="padding-left:24px;"><span class="oker">grid-area</span>: agArticle;<br /></span>
+          }<br />
+          <span class="purple">.attGridAside1</span> { <br />
+          <span style="padding-left:24px;"><span class="oker">grid-area</span>: agAside1;<br /></span>
+          }<br />
+          <span class="purple">.attGridAside2</span> { <br />
+          <span style="padding-left:24px;"><span class="oker">grid-area</span>: agAside2;<br /></span>
+          }<br />
+        </code>
+    </div>
+
+    <p>
+        Nu ontwerp je je layout! Laten we de twee <code>aside</code> elementen naast elkaar onder aan de pagina plaatsen. Hiervoor heb je twee <strong>columns</strong> van gelijke breedte nodig. Je kan de <strong>row</strong> hoogte automatisch maken.
+    </p>
+    <ul>
+        <li>
+            Plaats de volgende code in de CSS-regels van <code>.attPageLayoutGrid</code>:
+        </li>
+    </ul>
+
+    <div class="codeblock">
+        <code style="background-color:black;">
+          <span class="oker">grid-template-rows</span>: auto;<br />
+          <span class="oker">grid-template-columns</span>: 1fr 1fr;<br />
+          <span class="oker">grid-template-areas</span>: <br />
+          <span class="green" style="padding-left:24px;">"agArticle agArticle"</span><br />
+          <span class="green" style="padding-left:24px;">"agAside1 agAside2"</span>;<br />
+        </code>
+    </div>
+
+    <p>
+        <code>fr</code> staat voor <strong>fraction</strong> (gedeelte). Zie je hoe zorgt dat het <code>article</code> alle ruimte over de twee kolommen in beslag neemt?
+    </p>
+
+
+    <div class="accordion" id="htmlTagsExplained">
+        <div class="card collapseCard">
+            <button class="btn collapseButton" type="button" data-toggle="collapse" data-target="#collapseHtmlTagsExplained" aria-expanded="true" aria-controls="collapseHtmlTagsExplained">
+              <div class="card-header collapseHeader" id="headingHtmlTagsExplained">
+                <h2 class="mb-0">
+                  <img src="images/info.svg" alt="" class="left small-icon"/>
+                  <span class="collapseText left">Help! Ik krijg fouten!</span>
+                  <i class="fas fa-angle-down collapseIcon"></i>
+                </h2>
+              </div>
+            </button>
+
+            <div id="collapseHtmlTagsExplained" class="collapse hide" aria-labelledby="headingHtmlTagsExplained" data-parent="#htmlTagsExplained">
+                <div class="card-body">
+                    <p>
+                        Als je Trinket gebruikt, zie je misschien enkele fouten en waarschuwingen verschijnen, zelfs als je de code precies zoals hierboven hebt getypt. Dit komt omdat Trinket de CSS grid eigenschappen nog niet herkent. De code werkt echter nog steeds.
+                    </p>
+                    <p>
+                        Als de CSS grid code je waarschuwingen 'unknown property' (onbekende eigenschap) of een fout zoals 'unexpected token 1fr' (onverwachte symbool 1fr) geeft, kan je deze gewoon negeren.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <img src="images/layout-grid.png" alt="" class="img-responsive"><br />
+
+    <p>
+        Laten we de <code>aside</code> elementen aan de rechterkant zetten en ze de helft van de breedte van het <code>article</code> maken.
+    </p>
+    <ul>
+        <li>
+            Wijzig de waarden van <code>grid-template-columns</code> en <code>grid-template-areas</code> in:
+        </li>
+    </ul>
+
+    <div class="codeblock">
+        <code style="background-color:black;">
+          <span class="oker">grid-template-columns</span>: 2fr 1fr;<br />
+          <span class="oker">grid-template-areas</span>: <br />
+          <span class="green" style="padding-left:24px;">"agArticle agAside1"</span><br />
+          <span class="green" style="padding-left:24px;">"agArticle agAside2"</span>;<br />
+        </code>
+    </div>
+
+    <img src="images/layout-grid-2.png" alt="" class="img-responsive"><br />
+
+    <ul>
+      <li>
+        Als je niet wilt dat de <code>aside</code> elementen helemaal naar beneden reiken, kan je een lege ruimte toevoegen met een punt:
+      </li>
+    </ul>
+
+    <div class="codeblock">
+        <code style="background-color:black;">
+          <span class="oker">grid-template-areas</span>: <br />
+          <span class="green" style="padding-left:24px;">"agArticle agAside1"</span><br />
+          <span class="green" style="padding-left:24px;">"agArticle agAside2"</span><br />
+          <span class="green" style="padding-left:24px;">"agArticle ."</span>;<br />
+        </code>
+    </div>
+
+    <img src="images/layout-grid-3.png" alt="" class="img-responsive"><br />
+
+    <h3>Uitdaging: maak verschillende indelingen voor verschillende schermformaten</h3>
+    <ul>
+      <li>
+        Kun je de schermgrootte checks gebruiken die je eerder hebt toegevoegd om de layout te wijzigen, afhankelijk van hoe breed het scherm is?<br />
+        Opmerking: als je al CSS-blokken voor elke schermgrootte hebt gemaakt, kan je de nieuwe CSS-code aan die blokken toevoegen in plaats
+        van nieuwe te maken.
+      </li>
+    </ul>
+
+    <div class="accordion" id="differentFormatHint">
+        <div class="card collapseCard">
+            <button class="btn collapseButton" type="button" data-toggle="collapse" data-target="#collapseDifferentFormatHint" aria-expanded="true" aria-controls="collapseDifferentFormatHint">
+                  <div class="card-header collapseHeader" id="headingDifferentFormatHint">
+                    <h2 class="mb-0">
+                      <img src="images/hint.svg" alt="" class="left small-icon"/>
+                      <span class="collapseText left">Geef me een hint</span>
+                      <i class="fas fa-angle-down collapseIcon"></i>
+                    </h2>
+                  </div>
+                </button>
+
+            <div id="collapseDifferentFormatHint" class="collapse hide" aria-labelledby="headingDifferentFormatHint" data-parent="#differentFormatHint">
+                <div class="card-body">
+                  <p>
+                    De volgende code definieert een layout voor de CSS class hierboven wanneer het scherm groter is dan 1000 pixels:
+                  </p>
+
+                  <div class="codeblock">
+                      <code style="background-color:black;">
+                        <span class="purple">@media all and</span> (<span class="oker">min-width</span>: <span class="purple">1000px</span>) {<br />
+                        <span style="padding-left:24px;"><span class="purple">.attPageLayoutGrid</span> { </span><br />
+                        <span style="padding-left:48px;"><span class="oker">grid-template-columns</span>: 1fr 1fr;<br /></span>
+                        <span style="padding-left:48px;"><span class="oker">grid-template-areas</span>:<br /></span>
+                        <span style="padding-left:72px;"><span class="green">"agArticle agArticle"</span><br /></span>
+                        <span style="padding-left:72px;"><span class="green">"agAside1 agAside2"</span>;<br /></span>
+                        <span style="padding-left:24px;">}</span><br />
+                        }<br />
+                      </code>
+                  </div>
+
+                  <p>
+                    De volgende code definieert een layout voor de CSS class hierboven wanneer het scherm groter is dan 1600 pixels:
+                  </p>
+
+                  <div class="codeblock">
+                      <code style="background-color:black;">
+                        <span class="purple">@media all and</span> (<span class="oker">min-width</span>: <span class="purple">1600px</span>) {<br />
+                        <span style="padding-left:24px;"><span class="purple">.attPageLayoutGrid</span> { </span><br />
+                        <span style="padding-left:48px;"><span class="oker">grid-template-columns</span>: 1fr 1fr;<br /></span>
+                        <span style="padding-left:48px;"><span class="oker">grid-template-areas</span>:<br /></span>
+                        <span style="padding-left:72px;"><span class="green">"agArticle agAside1"</span><br /></span>
+                        <span style="padding-left:72px;"><span class="green">"agArticle agAside2"</span>;<br /></span>
+                        <span style="padding-left:72px;"><span class="green">"agArticle . "</span>;<br /></span>
+                        <span style="padding-left:24px;">}</span><br />
+                        }<br />
+                      </code>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<p>
+  Met <strong>CSS grid</strong> kan je bijna elke gewenste indeling maken. Als je meer wilt weten, ga dan naar de <a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank">grid gids</a>.
+</p>
 
     <div class="buttonbar">
         <button id="back" data-item="captions.html" onclick="handleMenuClick(this)">
