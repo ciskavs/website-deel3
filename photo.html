@@ -8,6 +8,263 @@
 
 <body>
     <h2>Foto collage</h2>
+    <p>
+        Hier leer je CSS te gebruiken om HTML-elementen exact te positioneren en een foto collage te maken.
+    </p>
+    <ul>
+        <li>
+            Voeg een <code>div</code> toe aan je pagina en plaats er zoveel afbeeldingen in als je wil. Geef de <code>div</code> en
+            <code>img</code> elementen <code>id</code> waarden.
+        </li>
+    </ul>
+
+    <div class="codeblock">
+        <code style="background-color:black;">
+        &lt;<span class="pink">div id</span>="<span class="green">photoBox</span>" <span class="pink">class</span>="<span class="green">relPos</span>"&gt;<br />
+        <span style="padding-left:24px;">&lt;<span class="pink">img id</span>="<span class="green">imgBurcht</span>" <span class="pink">class</span>="<span class="green">absPos</span>" <span class="pink">src</span>="<span class="green">burcht.jpg</span>" <span class="pink">alt</span>="<span class="green">De Burcht</span>" /&gt;</span><br />
+        <span style="padding-left:24px;">&lt;<span class="pink">img id</span>="<span class="green">imgRondvaart</span>" <span class="pink">class</span>="<span class="green">absPos</span>" <span class="pink">src</span>="<span class="green">rondvaart.jpg</span>" <span class="pink">alt</span>="<span class="green">Bootje varen...</span>" /&gt;</span><br />
+        &lt;/<span class="pink">div</span>&gt;</span><br />
+      </code>
+    </div>
+
+    <p>
+        De foto's verschijnen na elkaar op de webpagina, in de volgorde waarin ze in je code staan.
+    </p>
+    <ul>
+        <li>
+            Voeg in je CSS-bestand de volgende CSS class toe voor de elementen in de <code>div</code>:
+        </li>
+    </ul>
+
+    <div class="codeblock">
+        <code style="background-color:black;">
+          <span class="purple">.absPos</span> { <br />
+          <span style="padding-left:24px;"><span class="oker">position</span>: absolute;<br /></span>
+          }<br />
+        </code>
+    </div>
+
+    <ul>
+        <li>
+            Vervolgens moet je de eigenschap <code>position: relative;</code> toevoegen aan de container zelf en er een maat voor opgeven. Dit zorgt ervoor dat de posities van de andere elementen <strong>relatief</strong> ten opzichte van (dat wil zeggen,
+            binnen) de container worden gedefinieerd.
+        </li>
+    </ul>
+
+    <div class="codeblock">
+        <code style="background-color:black;">
+          <span class="purple">.relPos</span> { <br />
+          <span style="padding-left:24px;"><span class="oker">position</span>: relative;<br /></span>
+          }<br />
+          <span class="purple">#photoBox</span> { <br />
+          <span style="padding-left:24px;"><span class="oker">width</span>: 800px;<br /></span>
+          <span style="padding-left:24px;"><span class="oker">height</span>: 400px;<br /></span>
+          }<br />
+        </code>
+    </div>
+
+    <ul>
+        <li>
+            Maak vervolgens een set stijlregels voor elk van de elementen met behulp van <strong>id selectors</strong> om hun afmetingen (
+            <code>width</code> en/of <code>height</code> eigenschappen) en hun exacte posities in te stellen.
+
+        </li>
+    </ul>
+    <p>
+        Om de positie van een element te definiëren, zijn er vier eigenschappen die je kan gebruiken: <code>left</code>, <code>right</code>,
+        <code>top</code> en <code>bottom</code>. Ze geven aan hoe ver elk van de randen van de rand van de parent moet zijn. Gebruik <code>top</code> of <code>bottom</code> voor de verticale positie en <code>left</code> of <code>right</code> voor de horizontale
+        positie.
+    </p>
+
+    <img src="images/positioning.png" alt="" class="img-responsive"><br />
+
+    <ul>
+        <li>
+            Kies exacte posities voor elk van je afbeeldingen en gebruik een van de eigenschappen <code>left</code>, <code>right</code>,
+            <code>top</code> of <code>bottom</code> om die posities in je CSS-regels te definiëren. Deze code plaatst de afbeelding van de Burcht bijvoorbeeld 100 pixels van boven en 60 pixels van links:
+        </li>
+    </ul>
+
+    <div class="codeblock">
+        <code style="background-color:black;">
+          <span class="purple">#imgBurcht</span> { <br />
+          <span style="padding-left:24px;"><span class="oker">width</span>: 250px;<br /></span>
+          <span style="padding-left:24px;"><span class="oker">top</span>: 100px;<br /></span>
+          <span style="padding-left:24px;"><span class="oker">left</span>: 60px;<br /></span>
+          }<br />
+        </code>
+    </div>
+
+    <p>
+        Opmerking: de positiewaarden kunnen ook negatief zijn! Als je een negatieve waarde gebruikt, wordt het element buiten de container geduwd, over de rand die je hebt opgegeven.
+    </p>
+
+    <h3>Dingen laten overlappen</h3>
+
+    <p>
+        Misschien wil je dat sommige afbeeldingen elkaar overlappen. Maar hoe kies je welke bovenaan staat?
+    </p>
+
+    <ul>
+        <li>
+            Kies twee afbeeldingen en geef ze posities waardoor ze elkaar overlappen.
+        </li>
+        <li>
+            Voeg een extra eigenschap toe: <code>z-index: 10;</code> aan een van hen, en voeg dan <code>z-index: 7;</code> toe aan de ander.
+        </li>
+        <li>
+            Bekijk het resultaat op je webpagina.
+        </li>
+    </ul>
+
+    <img src="images/position-overlap.png" alt="" class="img-responsive"><br />
+
+    <ul>
+        <li>
+            Verwissel nu de waarden van <code>z-index</code>, zodat de <code>7</code> en de <code>10</code> andersom staan. Zie je enig verschil op je webpagina?
+        </li>
+    </ul>
+
+    <img src="images/position-andersom.png" alt="" class="img-responsive"><br />
+
+    <div class="accordion" id="zindexExplained">
+        <div class="card collapseCard">
+            <button class="btn collapseButton" type="button" data-toggle="collapse" data-target="#collapseZindexExplained" aria-expanded="true" aria-controls="collapseZindexExplained">
+              <div class="card-header collapseHeader" id="headingZindexExplained">
+                <h2 class="mb-0">
+                  <img src="images/info.svg" alt="" class="left small-icon"/>
+                  <span class="collapseText left">Hoe werkt z-index?</span>
+                  <i class="fas fa-angle-down collapseIcon"></i>
+                </h2>
+              </div>
+            </button>
+
+            <div id="collapseZindexExplained" class="collapse hide" aria-labelledby="headingZindexExplained" data-parent="#zindexExplained">
+                <div class="card-body">
+                    <p>
+                        Met de eigenschap <code>z-index</code> kan je bepalen hoe twee of meer elementen elkaar moeten overlappen. De waarde kan elk geheel getal zijn.
+                    </p>
+                    <p>
+                        Het element met het <strong>hoogste</strong> nummer komt <strong>bovenop</strong> de stapel, of met andere woorden helemaal <strong>vooraan</strong>. Het element met het volgende hoogste nummer bevindt zich daarachter en vóór de
+                        anderen, enzovoort, totdat je bij het element met het laagste nummer komt, dat achteraan achter alle andere elementen verschijnt.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p>
+        Je kan elk HTML-element op deze manier plaatsen, niet alleen afbeeldingen. Je kan bijvoorbeeld een <code>p</code> element gebruiken om wat tekst over een foto toe te voegen.
+    </p>
+
+    <h3>Uitdaging: maak een fotocollage</h3>
+    <p>
+        Probeer je eigen fotocollage te maken zoals hieronder afgebeeld! Gebruik exacte positionering samen met verschillende waarden
+        voor <code>z-index</code> om het overlappende effect te krijgen zoals je het wil.
+    </p>
+
+    <div class="accordion" id="collageHint">
+        <div class="card collapseCard">
+            <button class="btn collapseButton" type="button" data-toggle="collapse" data-target="#collapseCollageHint" aria-expanded="true" aria-controls="collapseCollageHint">
+                  <div class="card-header collapseHeader" id="headingCollageHint">
+                    <h2 class="mb-0">
+                      <img src="images/hint.svg" alt="" class="left small-icon"/>
+                      <span class="collapseText left">Geef me een hint</span>
+                      <i class="fas fa-angle-down collapseIcon"></i>
+                    </h2>
+                  </div>
+                </button>
+
+            <div id="collapseCollageHint" class="collapse hide" aria-labelledby="headingCollageHint" data-parent="#collageHint">
+                <div class="card-body">
+                  <p>
+                    Hieronder staat de HTML-code voor de fotocollage op de voorbeeld website. Er zijn vijf foto's en een stuk tekst allemaal in een <code>div</code>.
+                  </p>
+
+                  <div class="codeblock">
+                      <code style="background-color:black;">
+                      &lt;<span class="pink">div id</span>="<span class="green">photoBox</span>" <span class="pink">class</span>="<span class="green">relPos</span>"&gt;<br />
+                      <span style="padding-left:24px;">&lt;<span class="pink">img id</span>="<span class="green">imgBurcht</span>" <span class="pink">class</span>="<span class="green">collagePhoto absPos</span>" <span class="pink">src</span>="<span class="green">burcht.jpg</span>" <span class="pink">alt</span>="<span class="green">De Burcht</span>" /&gt;</span><br />
+                      <span style="padding-left:24px;">&lt;<span class="pink">img id</span>="<span class="green">imgRondvaart</span>" <span class="pink">class</span>="<span class="green">collagePhoto absPos</span>" <span class="pink">src</span>="<span class="green">rondvaart.jpg</span>" <span class="pink">alt</span>="<span class="green">Bootje varen...</span>" /&gt;</span><br />
+                      <span style="padding-left:24px;">&lt;<span class="pink">img id</span>="<span class="green">imgNaturalis</span>" <span class="pink">class</span>="<span class="green">collagePhoto absPos</span>" <span class="pink">src</span>="<span class="green">naturalis.jpg</span>" <span class="pink">alt</span>="<span class="green">Dino's in Naturalis</span>" /&gt;</span><br />
+                      <span style="padding-left:24px;">&lt;<span class="pink">img id</span>="<span class="green">imgOudheden</span>" <span class="pink">class</span>="<span class="green">collagePhoto absPos</span>" <span class="pink">src</span>="<span class="green">mummy.jpg</span>" <span class="pink">alt</span>="<span class="green">Mummies in Rijksmuseum voor Oudheden</span>" /&gt;</span><br />
+                      <span style="padding-left:24px;">&lt;<span class="pink">img id</span>="<span class="green">imgVliet</span>" <span class="pink">class</span>="<span class="green">collagePhoto absPos</span>" <span class="pink">src</span>="<span class="green">zwembad.jpg</span>" <span class="pink">alt</span>="<span class="green">Zwemmen in De Vliet!</span>" /&gt;</span><br />
+                      <span style="padding-left:24px;">&lt;<span class="pink">p id</span>="<span class="green">photoTekst</span>" <span class="pink">class</span>="<span class="green">absPos</span>"&gt;Leiden!&lt;/<span class="pink">p</span>&gt;</span><br />
+                      &lt;/<span class="pink">div</span>&gt;</span><br />
+                    </code>
+                  </div>
+
+                  <p>
+                    En dit zijn de CSS-regels die de posities bepalen voor elk van de foto's in de collage:
+                  </p>
+
+                  <div class="codeblock">
+                      <code style="background-color:black;">
+                        <span class="purple">#imgBurcht</span> { <br />
+                        <span style="padding-left:24px;"><span class="oker">width</span>: 120px;<br /></span>
+                        <span style="padding-left:24px;"><span class="oker">top</span>: 130px;<br /></span>
+                        <span style="padding-left:24px;"><span class="oker">left</span>: 70px;<br /></span>
+                        <span style="padding-left:24px;"><span class="oker">z-index</span>: 10;<br /></span>
+                        }<br />
+                        <span class="purple">#imgRondvaart</span> { <br />
+                        <span style="padding-left:24px;"><span class="oker">width</span>: 250px;<br /></span>
+                        <span style="padding-left:24px;"><span class="oker">top</span>: 210px;<br /></span>
+                        <span style="padding-left:24px;"><span class="oker">left</span>: 120px;<br /></span>
+                        <span style="padding-left:24px;"><span class="oker">z-index</span>: 7;<br /></span>
+                        }<br />
+
+                        <span class="purple">#imgNaturalis</span> { <br />
+                        <span style="padding-left:24px;"><span class="oker">width</span>: 150px;<br /></span>
+                        <span style="padding-left:24px;"><span class="oker">top</span>: 240px;<br /></span>
+                        <span style="padding-left:24px;"><span class="oker">left</span>: 325px;<br /></span>
+                        <span style="padding-left:24px;"><span class="oker">z-index</span>: 9;<br /></span>
+                        }<br />
+                        <span class="purple">#imgOudheden</span> { <br />
+                        <span style="padding-left:24px;"><span class="oker">width</span>: 110px;<br /></span>
+                        <span style="padding-left:24px;"><span class="oker">top</span>: 215px;<br /></span>
+                        <span style="padding-left:24px;"><span class="oker">left</span>: 25px;<br /></span>
+                        <span style="padding-left:24px;"><span class="oker">z-index</span>: 11;<br /></span>
+                        }<br />
+                        <span class="purple">#imgVliet</span> { <br />
+                        <span style="padding-left:24px;"><span class="oker">width</span>: 250px;<br /></span>
+                        <span style="padding-left:24px;"><span class="oker">top</span>: 90px;<br /></span>
+                        <span style="padding-left:24px;"><span class="oker">left</span>: 170px;<br /></span>
+                        <span style="padding-left:24px;"><span class="oker">z-index</span>: 6;<br /></span>
+                        }<br />
+                        <span class="purple">#photoTekst</span> { <br />
+                        <span style="padding-left:24px;"><span class="oker">font-family</span>: "brush script MT";<br /></span>
+                        <span style="padding-left:24px;"><span class="oker">color</span>: blue;<br /></span>
+                        <span style="padding-left:24px;"><span class="oker">font-size</span>: 4em;<br /></span>
+                        <span style="padding-left:24px;"><span class="oker">left</span>: 20px;<br /></span>
+                        <span style="padding-left:24px;"><span class="oker">top</span>: 210px;<br /></span>
+                        <span style="padding-left:24px;"><span class="oker">z-index</span>: 20;<br /></span>
+                        }<br />
+                      </code>
+                  </div>
+
+                  <p>
+                    En dit zijn de andere CSS-classes die zijn gebruikt:
+                  </p>
+
+                  <div class="codeblock">
+                      <code style="background-color:black;">
+                        <span class="purple">.collagePhoto</span> { <br />
+                        <span style="padding-left:24px;"><span class="oker">border</span>: 1px solid white;<br /></span>
+                        }<br />
+                        <span class="purple">.relPos</span> { <br />
+                        <span style="padding-left:24px;"><span class="oker">position</span>: relative;<br /></span>
+                        }<br />
+                        <span class="purple">.absPos</span> { <br />
+                        <span style="padding-left:24px;"><span class="oker">position</span>: absolute;<br /></span>
+                        }<br />
+                      </code>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <img src="images/collage-leiden.png" alt="" class="img-responsive"><br />
 
 
     <div class="buttonbar">
