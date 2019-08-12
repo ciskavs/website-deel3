@@ -9,6 +9,219 @@
 <body>
     <h2>Speciale effecten</h2>
 
+    <p>
+        Hier leer je nog een paar leuke effecten die je kunt bereiken met CSS.
+    </p>
+    <h3>
+      Schaduwen en beweging
+    </h3>
+    <p>
+        Laten we een kleine beweging toevoegen als je je cursor over de eerder gemaakte kaarten beweegt.
+    </p>
+
+    <ul>
+        <li>
+            Zoek de <code>.card:hover</code> CSS-class van eerder en wijzig deze in het volgende:
+        </li>
+    </ul>
+
+    <div class="codeblock">
+        <code style="background-color:black;">
+        <span class="purple">.card:hover</span> { <br />
+        <span style="padding-left:24px;"><span class="oker">box-shadow</span>: 0px 2px 2px rgba(0,0,0,0.2);<br /></span>
+        <span style="padding-left:24px;"><span class="oker">transform</span>: translateY(-2px);<br /></span>
+        }<br />
+      </code>
+    </div>
+
+    <ul>
+        <li>
+            Probeer verschillende waarden uit in de <code>translateY</code> functie!
+        </li>
+    </ul>
+
+    <div class="accordion" id="transformExplained">
+        <div class="card collapseCard">
+            <button class="btn collapseButton" type="button" data-toggle="collapse" data-target="#collapseTransformExplained" aria-expanded="true" aria-controls="collapseTransformExplained">
+              <div class="card-header collapseHeader" id="headingTransformExplained">
+                <h2 class="mb-0">
+                  <img src="images/info.svg" alt="" class="left small-icon"/>
+                  <span class="collapseText left">De eigenschap 'transform'</span>
+                  <i class="fas fa-angle-down collapseIcon"></i>
+                </h2>
+              </div>
+            </button>
+
+            <div id="collapseTransformExplained" class="collapse hide" aria-labelledby="headingTransformExplained" data-parent="#transformExplained">
+                <div class="card-body">
+                    <p>
+                        Als je 'Vervolg HTML/CSS' hebt gedaan, herinner je je misschien de eigenschap <code>transform</code> in sommige
+                        <code>@keyframes</code> animaties. Hier zie je dat je de eigenschap ook alleen kunt gebruiken binnen een regulier CSS-blok.
+                    </p>
+                    <p>
+                        Een soort waarde die je kan instellen, is <code>rotate</code>, om een element te laten draaien. Anderen zijn <code>translateY</code>, dat iets omhoog of omlaag beweegt, en <code>translateX</code>, voor beweging van links naar rechts.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ul>
+        <li>
+            Speel met verschillende pixelwaarden in de eigenschap <code>box-shadow</code> om te zien wat ze doen.
+        </li>
+    </ul>
+
+    <div class="accordion" id="rgbaExplained">
+        <div class="card collapseCard">
+            <button class="btn collapseButton" type="button" data-toggle="collapse" data-target="#collapseRgbaExplained" aria-expanded="true" aria-controls="collapseRgbaExplained">
+              <div class="card-header collapseHeader" id="headingRgbaExplained">
+                <h2 class="mb-0">
+                  <img src="images/info.svg" alt="" class="left small-icon"/>
+                  <span class="collapseText left">Wat is 'rgba'?</span>
+                  <i class="fas fa-angle-down collapseIcon"></i>
+                </h2>
+              </div>
+            </button>
+
+            <div id="collapseRgbaExplained" class="collapse hide" aria-labelledby="headingRgbaExplained" data-parent="#rgbaExplained">
+                <div class="card-body">
+                    <p>
+                        <code>rgba (0,0,0,0.2)</code> is een andere manier om een kleur te definiëren.
+                    </p>
+                    <p>
+                        Het heeft de gebruikelijke drie nummers (van <code>0</code> tot <code>255</code>) voor rood, groen en blauw.
+                    </p>
+                    <p>
+                        Het vierde getal, de <strong>alpha</strong> waarde, definieert hoe <strong>transparant</strong> (of doorzichtig) iets is. Het is een decimaal getal tussen <code>0</code> en <code>1</code>, waarbij <code>1</code> helemaal niet doorzichtig
+                        is en <code>0</code> volledig onzichtbaar is. Dit betekent dat hoe lager de alpha waarde van een element, des te meer doorzichtig het is.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ul>
+        <li>
+            Maak ten slotte de beweging vloeiend door de volgende eigenschap toe te voegen aan de class <code>.card</code> van eerder:
+        </li>
+    </ul>
+
+    <div class="codeblock">
+        <code style="background-color:black;">
+        <span class="oker">transition</span>: all 0.2s ease-out;<br />
+      </code>
+    </div>
+
+    <ul>
+        <li>
+            Een duur van <code>0.2s</code> betekent dat de <code>transition</code> (overgang) 0,2 seconden duurt.
+        </li>
+    </ul>
+
+    <h3>Lightbox</h3>
+    <p>
+        Een ander effect dat je waarschijnlijk op heel veel websites hebt gezien, is de <strong>lightbox</strong>: je klikt op iets en de website dimt terwijl iets anders, zoals een groter beeld of een pop-upvenster, voor alles verschijnt.
+    </p>
+    <img src="images/lemur.png" alt="" class="img-responsive"><br />
+
+    <p>
+        Om dit effect te krijgen, maak je twee links: een voor de eigenlijke lightbox (het deel dat verschijnt) en een voor het ding waarop je klikt om de lightbox te laten verschijnen. In het voorbeeld gebruiken we de Plaatsen om te bezoeken-pagina van de website.
+        Je kan het op elke pagina waar je foto's hebt toepassen!
+    </p>
+
+    <ul>
+        <li>
+            Bepaal welke dingen je wil weergeven als je klikt en voeg ze allemaal aan je pagina toe tussen een set <code>a</code> tags om een link te maken. Zorg ervoor dat je de link een <code>id</code> geeft. De code kan overal op de pagina worden geplaatst:
+            je maakt de elementen in de volgende stap onzichtbaar!
+        </li>
+    </ul>
+
+    <div class="codeblock">
+        <code style="background-color:black;">
+        &lt;<span class="pink">a href</span>="<span class="green">#_</span>" <span class="pink">class</span>="<span class="green">lightbox</span>"  <span class="pink">id</span>="<span class="green">boxMaki</span>"&gt;<br />
+        <span style="padding-left:24px;">&lt;<span class="pink">h3</span>&gt;Maki!!&lt;/<span class="pink">h3</span>&gt;<br />
+        <span style="padding-left:24px;">&lt;<span class="pink">img src</span>="<span class="green">maki.png</span>" <span class="pink">alt</span>="<span class="green">Foto van een lemur</span>" /&gt;</span><br />
+        <span style="padding-left:24px;">&lt;<span class="pink">p</span>&gt;Een maki die van een kleine snack geniet&lt;/<span class="pink">p</span>&gt;<br />
+        &lt;/<span class="pink">a</span>&gt;</span><br />
+      </code>
+    </div>
+
+    <p>
+        Je kan alles wat je maar wil tussen de link (<code>a</code>) tags plaatsen. In het voorbeeld staan een grote afbeelding, een kop en wat tekst. Misschien wil je gewoon een foto en geen tekst!
+    </p>
+
+    <ul>
+        <li>
+            Voeg de volgende CSS-code voor de lightbox toe. Kun je erachter komen wat een deel ervan doet?
+        </li>
+    </ul>
+
+    <div class="codeblock">
+        <code style="background-color:black;">
+        <span class="purple">.lightbox</span> { <br />
+        <span style="padding-left:24px;"><span class="oker">background</span>: rgba(0,0,0,0.8);</span><br />
+        <span style="padding-left:24px;"><span class="oker">color</span>: #ffffff;</span><br />
+        <span style="padding-left:24px;"><span class="oker">text-align</span>: center;</span><br />
+        <span style="padding-left:24px;"><span class="oker">text-decoration</span>: none;</span><br />
+        <span style="padding-left:24px;"><span class="oker">width</span>: 100%;</span><br />
+        <span style="padding-left:24px;"><span class="oker">height</span>: 100%;</span><br />
+        <span style="padding-left:24px;"><span class="oker">top</span>: 0;</span><br />
+        <span style="padding-left:24px;"><span class="oker">left</span>: 0;</span><br />
+        <span style="padding-left:24px;"><span class="oker">position</span>: fixed;</span><br />
+        <span style="padding-left:24px;"><span class="oker">visibility</span>: hidden;</span><br />
+        <span style="padding-left:24px;"><span class="oker">z-index</span>: 999;</span><br />
+        }<br />
+      </code>
+    </div>
+
+    <p>
+        Opmerking: Als je de <code>position</code> eigenschap op <code>fixed</code> instelt, betekent dit dat de positie die je instelt relatief is aan het browservenster, zodat deze blijft staan als je bladert.
+    </p>
+    <ul>
+        <li>
+            Bepaal vervolgens op welk ding je wilt klikken om de lightbox te laten verschijnen en voeg een paar <code>a</code> tags toe rond dat element (in het voorbeeld is het een kleinere afbeelding van een maki). Het doel van de link is de lightbox,
+            die je instelt met behulp van de <code>id</code>. Je herkent deze techniek misschien van eerder!
+        </li>
+    </ul>
+
+    <div class="codeblock">
+        <code style="background-color:black;">
+        &lt;<span class="pink">a href</span>="<span class="green">#boxMaki</span>"&gt;<br />
+        <span style="padding-left:24px;">&lt;<span class="pink">img src</span>="<span class="green">maki.png</span>" <span class="pink">class</span>="<span class="green">mediumPics</span>" /&gt;</span><br />
+        &lt;/<span class="pink">a</span>&gt;</span><br />
+      </code>
+    </div>
+
+    <ul>
+        <li>
+            Voeg ten slotte de volgende CSS-code toe. Merk op dat dit een <strong>pseudo-class</strong> is; het moet achter de code voor de
+            <code>.lightbox</code> class komen en niet erin!
+        </li>
+    </ul>
+
+    <div class="codeblock">
+        <code style="background-color:black;">
+        <span class="purple">.lightbox:target</span> { <br />
+        <span style="padding-left:24px;"><span class="oker">visibility</span>: visible;</span><br />
+        }<br />
+      </code>
+    </div>
+
+    <p>
+        De <code>:target</code> pseudo-class wordt toegepast als de lightbox het doel was van de laatst aangeklikte link.
+        Dus als je ergens klikt, wordt de <code>visibility</code> (zichtbaarheid) teruggezet op <code>hidden</code> (verborgen).
+    </p>
+    <ul>
+        <li>
+            Klik op je nieuwe link om de lightbox te zien verschijnen! Om het te laten verdwijnen, klik je gewoon ergens op de pagina.
+        </li>
+    </ul>
+    <p>
+        Je kan zoveel lightboxes toevoegen als je wil aan een pagina. Ze kunnen allemaal dezelfde CSS-class gebruiken - zorg ervoor dat
+        elke een andere <code>id</code> heeft! Voor elk item moet je van iets op je webpagina een link maken waarop je kunt klikken om de lightbox
+        te laten verschijnen en vervolgens de <code>id</code> als de <code>href</code> waarde in die link gebruiken, net zoals je hierboven hebt gedaan!
+    </p>
 
     <div class="buttonbar">
         <button id="back" data-item="photo.html" onclick="handleMenuClick(this)">
